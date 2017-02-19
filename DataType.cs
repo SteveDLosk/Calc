@@ -6,6 +6,9 @@
           A method to return the smallest type you can fit a given value in.  Useful for choosing your datatype
           in arrays or lists of large production data sets
         */
+        
+        // note whether the value is negative.  Later in the code, its value is converted to positive for comparison to
+        // data type value ceilings
         bool isNegative = false;
         if (x.Sign == -1)
             isNegative = true;
@@ -44,6 +47,7 @@
             }
             else if (compare < 1 && i % 2 == 1 && isNegative)
             {
+                // if i % 2 is odd, and negative, an unsigned type will not work, move up to the next larger signed type
                 pos = i + 1;
                 break;
             }
